@@ -38,7 +38,7 @@ Add ECR URL to `Task definiton` in ECS
 
 Endpoint: `https://<your-image-name>.<aws account>.dkr.ecr.ap-northeast-1.amazonaws.com/pointcloud`
 
-![Postman UI](./images/image.png)
+![Postman UI](./images/image1.png)
 
 - `download_url`: the url to download the pointcloud data from
 - `file_name`: rename the downloaded pointcloud data
