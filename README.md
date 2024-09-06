@@ -32,24 +32,24 @@ docker push <aws account>.dkr.ecr.ap-northeast-1.amazonaws.com/pointcloud:latest
 ```
 5. AWS ECS settings
 
-Add ECR URL to `Task definiton` in ECS
+    Add ECR URL to `Task definiton` in ECS
 
 6. Execute API with Postman
 
-Endpoint: `https://<your-image-name>.<aws account>.dkr.ecr.ap-northeast-1.amazonaws.com/pointcloud`
+    Endpoint: `https://<your-image-name>.<aws account>.dkr.ecr.ap-northeast-1.amazonaws.com/pointcloud`
 
-![Postman UI](./images/image1.png)
+    ![Postman UI](./images/image1.png)
 
-- `download_url`: the url to download the pointcloud data from
-- `file_name`: rename the downloaded pointcloud data
-- `command`: the option to be passed to CloudCompare to process the pointcloud data
+    - `download_url`: the url to download the pointcloud data from
+    - `file_name`: rename the downloaded pointcloud data
+    - `command`: the option to be passed to CloudCompare to process the pointcloud data
 
-The above API triggers Lambda Function -->:arrow_right: start ECS container --> run docker container --> exec entrypoint.sh with the following steps:
+    The above API triggers Lambda Function -->:arrow_right: start ECS container --> run docker container --> exec entrypoint.sh with the following steps:
 
-- download the pointcloud data from the specified url
-- run CloudCompare to process the pointcloud data
-- upload the processed pointcloud data to the specified url
-- post the downloadable url to DynamoDb table
+    - download the pointcloud data from the specified url
+    - run CloudCompare to process the pointcloud data
+    - upload the processed pointcloud data to the specified url
+    - post the downloadable url to DynamoDb table
 
 ## GET PointCloud Processing status API
 - **GET** task_id related info from DynamoDb
